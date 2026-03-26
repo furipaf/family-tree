@@ -53,7 +53,7 @@ A beautiful, privacy-focused family tree web application built with PHP and mode
    chmod 644 data/.htaccess
    ```
 3. **Access admin panel:**
-   - URL1: `https://family-tree.rf.gd/admin/login.php`
+   - URL1: `https://family-tree.ct.ws/admin/login.php`
    - URL2: `https://family-tree.rf.gd/admin/login.php`
    - Default username: `admin`
    - Default password: `admin123`
@@ -176,7 +176,7 @@ The application is translation-ready. Copy `includes/lang/en.php` and translate 
 
 ## Support
 
-- **Help Documentation:** `https://yourdomain.com/help.php`
+- **Help Documentation:** `https://family-tree.ct.ws/help.php`
 - **Contact Admin:** Click WhatsApp button on any page
 - **Video Tutorial:** [YouTube Link]
 
