@@ -183,6 +183,7 @@ The application is translation-ready. Copy `includes/lang/en.php` and translate 
 ## License
 
 This project is open source. Feel free to use and modify for your family.
+Contact me for source code: https://furipaf.github.io/family-tree/
 
 ## Credits
 
@@ -191,6 +192,5 @@ This project is open source. Feel free to use and modify for your family.
 - Fonts: Roboto (Google Fonts)
 
 ---
-Contact me for source code: https://furipaf.github.io/family-tree/
 
 **Preserve your family legacy for generations to come!** 🌳
