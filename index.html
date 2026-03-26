@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Family Tree - Get the Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00b2ff;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(ellipse at top, rgba(0, 178, 255, 0.15) 0%, transparent 50%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header { margin-bottom: 40px; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
+        .header p { color: var(--text-secondary); font-size: 1.1rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); }
+
+        /* Demo Card Details */
+        .demo-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .demo-info span { color: var(--primary); }
+
+        /* QR Section */
+        .qr-container {
+            background: white;
+            padding: 15px;
+            border-radius: 16px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .qr-container img {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(0, 178, 255, 0.4); }
+
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #1eb957; }
+
+        .email-link {
+            display: block;
+            margin-top: 15px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .email-link:hover { color: var(--primary); }
+
+        .footer { margin-top: 40px; color: var(--text-secondary); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <svg width="60" height="60" viewBox="0 0 48 48" fill="none" style="margin-bottom: 20px;">
+                <circle cx="24" cy="16" r="8" stroke="#00b2ff" stroke-width="2"/>
+                <circle cx="12" cy="36" r="6" stroke="#00b2ff" stroke-width="2"/>
+                <circle cx="36" cy="36" r="6" stroke="#00b2ff" stroke-width="2"/>
+                <path d="M20 22L14 30" stroke="#00b2ff" stroke-width="2"/>
+                <path d="M28 22L34 30" stroke="#00b2ff" stroke-width="2"/>
+            </svg>
+            <h1>Family Tree Project</h1>
+            <p>Open source PHP genealogical dashboard</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Live Demo</h2>
+                <p style="margin-bottom: 20px;">Explore the application features and UI in a live environment.</p>
+                <div class="demo-info">
+                    User: <span>admin</span><br>
+                    Pass: <span>admin123</span>
+                </div>
+                <a href="https://family-tree.rf.gd/admin/login.php" class="btn btn-primary" target="_blank">View Live Demo</a>
+                <a href="https://furipaf.github.io/" class="btn" style="border: 1px solid var(--border); color: white;">Alt. Mirror</a>
+            </div>
+
+            <div class="card">
+                <h2>Get Source Code</h2>
+                <div class="qr-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/923227778881?text=Hi%20Farhan,%20I%20would%20love%20to%20get%20the%20source%20code%20for%20the%20Family%20Tree%20project." alt="WhatsApp QR">
+                </div>
+                <a href="https://wa.me/923227778881?text=Hi%20Farhan,%20I%20would%20love%20to%20get%20the%20source%20code%20for%20the%20Family%20Tree%20project." class="btn btn-whatsapp" target="_blank">
+                    Message via WhatsApp
+                </a>
+                <a href="mailto:farhan@opensourcedashboard.com" class="email-link">farhan@opensourcedashboard.com</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Open Source Dashboard. Provided for free to the community.
+        </div>
+    </div>
+
+</body>
+</html>
