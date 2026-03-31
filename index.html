@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Source Family Tree - Get the Code</title>
+    <title>Family Tree | Open Source Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,149 +21,216 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
-            background-image: radial-gradient(ellipse at top, rgba(0, 178, 255, 0.15) 0%, transparent 50%);
+            background-image: radial-gradient(ellipse at top right, rgba(0, 178, 255, 0.1) 0%, transparent 40%),
+                              radial-gradient(ellipse at bottom left, rgba(0, 178, 255, 0.05) 0%, transparent 40%);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .container {
-            width: 100%;
-            max-width: 900px;
-            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
             text-align: center;
+            margin-bottom: 60px;
         }
+        .logo-icon { margin-bottom: 15px; }
+        header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.025em; }
+        header p { color: var(--text-secondary); font-size: 1.1rem; }
 
-        .header { margin-bottom: 40px; }
-        .header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
-        .header p { color: var(--text-secondary); font-size: 1.1rem; }
-
-        .grid {
+        /* Main Layout */
+        .main-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: start;
         }
 
-        .card {
+        /* Left Column: Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+        .feature-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .feature-icon { font-size: 1.5rem; margin-bottom: 12px; }
+        .feature-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--primary); }
+        .feature-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* Right Column: Action Card */
+        .sticky-sidebar {
+            position: sticky;
+            top: 40px;
+        }
+        .action-card {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
+            border: 2px solid var(--primary);
+            padding: 35px;
             border-radius: 24px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 178, 255, 0.15);
         }
 
-        .card:hover { transform: translateY(-5px); }
-
-        h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); }
-
-        /* Demo Card Details */
-        .demo-info {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            text-align: left;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        .demo-info span { color: var(--primary); }
-
-        /* QR Section */
-        .qr-container {
+        .qr-wrapper {
             background: white;
             padding: 15px;
             border-radius: 16px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
-        .qr-container img {
-            width: 180px;
-            height: 180px;
-            display: block;
+        .qr-wrapper img { width: 180px; height: 180px; display: block; }
+
+        .demo-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 25px;
+            text-align: left;
+            border: 1px solid var(--border);
         }
+        .demo-box span { color: var(--primary); font-family: monospace; font-weight: bold; }
 
         /* Buttons */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            display: block;
             width: 100%;
             padding: 14px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
+            margin-top: 15px;
             transition: 0.3s;
-            margin-bottom: 10px;
         }
-
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(0, 178, 255, 0.4); }
-
         .btn-whatsapp { background: #25D366; color: white; }
-        .btn-whatsapp:hover { background: #1eb957; }
+        .btn-demo { background: var(--primary); color: white; }
+        .btn:hover { filter: brightness(1.1); transform: scale(1.02); }
 
         .email-link {
             display: block;
-            margin-top: 15px;
+            margin-top: 20px;
             color: var(--text-secondary);
+            font-size: 0.85rem;
             text-decoration: none;
-            font-size: 0.9rem;
         }
         .email-link:hover { color: var(--primary); }
 
-        .footer { margin-top: 40px; color: var(--text-secondary); font-size: 0.8rem; }
+        @media (max-width: 992px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .sticky-sidebar { position: static; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <svg width="60" height="60" viewBox="0 0 48 48" fill="none" style="margin-bottom: 20px;">
-                <circle cx="24" cy="16" r="8" stroke="#00b2ff" stroke-width="2"/>
-                <circle cx="12" cy="36" r="6" stroke="#00b2ff" stroke-width="2"/>
-                <circle cx="36" cy="36" r="6" stroke="#00b2ff" stroke-width="2"/>
-                <path d="M20 22L14 30" stroke="#00b2ff" stroke-width="2"/>
-                <path d="M28 22L34 30" stroke="#00b2ff" stroke-width="2"/>
+<div class="container">
+    <header>
+        <div class="logo-icon">
+            <svg width="50" height="50" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="16" r="8" stroke="#00b2ff" stroke-width="2.5"/>
+                <circle cx="12" cy="36" r="6" stroke="#00b2ff" stroke-width="2.5"/>
+                <circle cx="36" cy="36" r="6" stroke="#00b2ff" stroke-width="2.5"/>
+                <path d="M20 22L14 30" stroke="#00b2ff" stroke-width="2.5"/>
+                <path d="M28 22L34 30" stroke="#00b2ff" stroke-width="2.5"/>
             </svg>
-            <h1>Family Tree Project</h1>
-            <p>Open source PHP genealogical dashboard</p>
         </div>
+        <h1>Family Tree Pro</h1>
+        <p>A modern, open-source genealogical solution</p>
+    </header>
 
-        <div class="grid">
-            <div class="card">
-                <h2>Live Demo</h2>
-                <p style="margin-bottom: 20px;">Explore the application features and UI in a live environment.</p>
-                <div class="demo-info">
-                    User: <span>admin</span><br>
-                    Pass: <span>admin123</span>
-                </div>
-                <a href="https://family-tree.ct.ws/" class="btn btn-primary" target="_blank">View Live Demo</a>
-                <a href="https://family-tree.rf.gd/" class="btn" style="border: 1px solid var(--border); color: white;">Alt. Mirror</a>
+    <main class="main-layout">
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌳</div>
+                <h3>Interactive Tree</h3>
+                <p>Beautiful top-down visualization with expandable cards and relationship lines.</p>
             </div>
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Photo Galleries</h3>
+                <p>Each family member can have their own gallery with full-screen viewer.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy Protected</h3>
+                <p>Photos are blurred for visitors. Only authorized members see clear images.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Ready</h3>
+                <p>Access from any device - desktop, tablet, or phone with responsive UI.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💑</div>
+                <h3>Spouse Support</h3>
+                <p>Handle complex relationships including multiple spouses and divorces.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>Dual Parent Tracking</h3>
+                <p>Track both mother and father, supporting diverse family structures.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Activity Logs</h3>
+                <p>Complete audit trail of all changes and system access for security.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Text & Print View</h3>
+                <p>Switch to simple text view for easy reading and clean printing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Smart Navigation</h3>
+                <p>Double-click to collapse branches, zoom controls, and instant search.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Dynamic QR Codes</h3>
+                <p>Auto-generated WhatsApp QR codes for easy support and resets.</p>
+            </div>
+        </section>
 
-            <div class="card">
-                <h2>Get Source Code</h2>
-                <div class="qr-container">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/923227778881?text=Hi%20Farhan,%20I%20would%20love%20to%20get%20the%20source%20code%20for%20the%20Family%20Tree%20project." alt="WhatsApp QR">
+        <aside class="sticky-sidebar">
+            <div class="action-card">
+                <h2 style="color: white; margin-bottom: 10px;">Get the Code</h2>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Scan to message me on WhatsApp for the source files</p>
+                
+                <div class="qr-wrapper">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/923227778881?text=Hi%20Farhan,%20I%20saw%20your%20GitHub%20project%20and%20would%20like%20the%20Family%20Tree%20code." alt="WhatsApp QR">
                 </div>
-                <a href="https://wa.me/923227778881?text=Hi%20Farhan,%20I%20would%20love%20to%20get%20the%20source%20code%20for%20the%20Family%20Tree%20project." class="btn btn-whatsapp" target="_blank">
-                    Message via WhatsApp
-                </a>
+
+                <a href="https://wa.me/923227778881" class="btn btn-whatsapp" target="_blank">Open WhatsApp Chat</a>
+
+                <div class="demo-box">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 10px;">Demo Access</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 5px;">User: <span>admin</span></p>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Pass: <span>admin123</span></p>
+                    <a href="https://family-tree.rf.gd/admin/login.php" class="btn btn-demo" target="_blank">Try Live Demo</a>
+                </div>
+
                 <a href="mailto:farhan@opensourcedashboard.com" class="email-link">farhan@opensourcedashboard.com</a>
             </div>
-        </div>
+        </aside>
+    </main>
 
-        <div class="footer">
-            &copy; 2026 Open Source Dashboard. Provided for free to the community.
-        </div>
-    </div>
+    <footer style="text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.8rem;">
+        &copy; 2026 Open Sourced Dashboard | Developed by Farhan
+    </footer>
+</div>
 
 </body>
 </html>
