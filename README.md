@@ -53,8 +53,8 @@ A beautiful, privacy-focused family tree web application built with PHP and mode
    chmod 644 data/.htaccess
    ```
 3. **Access admin panel:**
-   - URL1: `https://family-tree.ct.ws/admin/login.php`
-   - URL2: `https://family-tree.rf.gd/admin/login.php`
+   - URL1: `https://family-tree.rf.gd/admin/login.php`
+   - URL2: `https://furipaf.github.io/family-tree/`
    - Default username: `admin`
    - Default password: `admin123`
 
